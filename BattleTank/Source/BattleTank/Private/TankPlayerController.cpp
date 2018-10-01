@@ -6,7 +6,7 @@ void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//UE_LOG(LogTemp, Warning, TEXT("Control - %s"), *GetControlledTank()->GetName());
+	UE_LOG(LogTemp, Warning, TEXT("%s controlled by Player."), *GetControlledTank()->GetName());
 }
 
 ATank* ATankPlayerController::GetControlledTank() const
