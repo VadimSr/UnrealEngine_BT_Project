@@ -6,10 +6,31 @@ void ATankAiController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UE_LOG(LogTemp, Warning, TEXT("%s controlled by AI."), *GetControlledTank()->GetName());
+	ATank* PC = GetPlayerTank();
+
+	if (PC)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AI pointing at %s."), *PC->GetName());
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AI pointing at nothing."));
+	}
 }
 
 ATank* ATankAiController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
+}
+
+ATank* ATankAiController::GetPlayerTank() const
+{
+	auto APC = GetWorld()->GetFirstPlayerController()->GetPawn();
+
+	if (!APC)
+	{
+		return nullptr;
+	}
+
+	return Cast<ATank>(APC);
 }
