@@ -2,6 +2,9 @@
 
 #pragma once
 
+#include "Components/StaticMeshComponent.h"
+#include "Kismet/GameplayStatics.h"
+
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"
