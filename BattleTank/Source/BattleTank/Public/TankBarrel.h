@@ -19,7 +19,7 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere, Category = Setup)
-	float MaxDegeesPerSecond = 20.f;
+	float MaxDegeesPerSecond = 10.f;
 
 	UPROPERTY(EditAnywhere, Category = Setup)
 	float MinElevationDegees = 0.f;
