@@ -8,6 +8,7 @@
 
 class UTankAimingComponent;
 class UTankBarrel;
+class AProjectile;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -43,4 +44,8 @@ private:
 	UFUNCTION(BlueprintCallable, Category = Controll)
 	void Fire();
 
+	UPROPERTY(EditAnywhere, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBP;
+
+	UTankBarrel* LocalBarrel = nullptr;
 };
