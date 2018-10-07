@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankAimingComponent.h"
-
+#include "TankBarrel.h"
+#include "Engine/World.h"
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
@@ -36,10 +37,18 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 		//UE_LOG(LogTemp, Warning, TEXT("Aiming at %s"), *AimDiretion.ToString());
 
 		MoveBarrelTowwards(AimDiretion);
+
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f: move solution found."), Time);
+	}
+	else
+	{
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f: move solution not found."), Time);
 	}
 }
 
-void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	Barrel = BarrelToSet;
 }
@@ -50,5 +59,5 @@ void UTankAimingComponent::MoveBarrelTowwards(FVector AimDiretion)
 	auto AimAsRotator = AimDiretion.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
-	UE_LOG(LogTemp, Warning, TEXT("DeltaRotator: %s"), *DeltaRotator.ToString());
+	Barrel->Elevate(5);
 }
