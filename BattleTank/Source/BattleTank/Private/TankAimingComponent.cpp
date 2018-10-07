@@ -41,7 +41,6 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 	if (bHaveAimSolution)
 	{
 		auto AimDiretion = OutLaunchVelocity.GetSafeNormal();
-		//UE_LOG(LogTemp, Warning, TEXT("Aiming at %s"), *AimDiretion.ToString());
 
 		MoveBarrelTowwards(AimDiretion);
 		MoveTurretTowwards(AimDiretion);
