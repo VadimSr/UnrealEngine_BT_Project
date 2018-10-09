@@ -18,6 +18,6 @@ public:
 	void Rotate(float RalativeSpeed);
 
 private:
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	float MaxDegeesPerSecond = 20.f;	
 };
