@@ -18,5 +18,5 @@ public:
 
 private:
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
-	float AcceptanceRadius = 5000.f;
+	float AcceptanceRadius = 3000.f;
 };
