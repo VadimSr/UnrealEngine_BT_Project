@@ -18,6 +18,12 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
+void UTankAimingComponent::Initialize(UTankBarrel* vBarrel, UTankTurret* vTurret)
+{
+	Barrel = vBarrel;
+	Turret = vTurret;
+}
+
 void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 {
 	if (!Barrel || !Turret) { return; }
